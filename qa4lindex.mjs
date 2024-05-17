@@ -1,8 +1,8 @@
-const apiURL = "https://animechan.vercel.app/api/random";
+const animechanapiURL = "https://animechan.vercel.app/api/random";
 
 async function getAnimeQuote() {
   try {
-    const response = await fetch(apiURL);
+    const response = await fetch(animechanapiURL);
     if (!response.ok) {
       throw new Error("Nani !?");
     }
