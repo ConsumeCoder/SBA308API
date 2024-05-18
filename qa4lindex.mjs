@@ -1,13 +1,14 @@
-const animechanapiURL = "https://animechan.vercel.app/api/random";
+const jikanapiURL = "https://api.jikan.moe/v4/random/anime";
 
 async function getAnimeQuote() {
   try {
-    const response = await fetch(animechanapiURL);
+    const response = await fetch(jikanapiURL);
     if (!response.ok) {
       throw new Error("Nani !?");
     }
     const data = await response.json();
     displayQuote(data);
+    console.log(data);
   } catch (error) {
     console.error("Error fetching the quote:", error);
     document.getElementById("quote").textContent =

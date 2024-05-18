@@ -9,8 +9,15 @@ async function getAnimeBGP() {
     const data = await response.json();
     displayQuote(data);
   } catch (error) {
-    console.error("Error fetching the quote:", error);
+    console.error("Error fetching the image:", error);
     document.getElementById("quote").textContent =
       "Failed to fetch a quote. Please try again.";
   }
 }
+fetch(jikanapiURL)
+  .then((response) => response.blob())
+  .then((blob) => {
+    let animeimageUrl = URL.createObjectURL(blob);
+    document.body.style.backgroundImage = "url(" + imageUrl + ")";
+  })
+  .catch((error) => console.error(error));
